@@ -11,13 +11,13 @@ export type CarouselProps = {
 };
 
 export default function Carousel(props: CarouselProps) {
-  const { children, className } = props;
+  const { children, className, options } = props;
   const container = useRef<HTMLDivElement>(null);
   const flickity = useRef<Flickity>();
 
   useEffect(() => {
     if (container.current) {
-      flickity.current = new Flickity(container.current, {});
+      flickity.current = new Flickity(container.current, options);
     }
   }, []);
 
