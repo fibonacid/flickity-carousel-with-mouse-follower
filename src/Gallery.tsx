@@ -1,6 +1,5 @@
-import styles from "./Gallery.module.css";
 import Carousel, { CarouselCell } from "./Carousel";
-import Cursor from "./Cursor";
+import styles from "./Gallery.module.css";
 import MouseCursor from "./MouseCursor";
 
 const IMAGES = [
@@ -14,12 +13,15 @@ const IMAGES = [
   "https://source.unsplash.com/random/1200x1200/?nature,sea",
 ];
 
+const options: Flickity.Options = {
+  draggable: false,
+};
+
 export default function Gallery() {
-  console.log({ styles });
   return (
     <>
       <MouseCursor />
-      <Carousel className={styles.Gallery}>
+      <Carousel className={styles.Gallery} options={options}>
         {IMAGES.map((image, index) => (
           <CarouselCell className={styles.GalleryItem} key={index}>
             <img
@@ -27,6 +29,7 @@ export default function Gallery() {
               src={image}
               width="1200"
               height="1200"
+              draggable={false}
             />
           </CarouselCell>
         ))}
