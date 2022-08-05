@@ -11,6 +11,7 @@ export default function MouseCursor(props: MouseCursorProps) {
       cursorRef.current?.moveTo(event.clientX, event.clientY);
     };
     window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };

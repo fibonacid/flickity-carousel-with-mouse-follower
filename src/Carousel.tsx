@@ -4,14 +4,12 @@ import { PropsWithChildren, useEffect, useRef } from "react";
 import Flickity from "flickity";
 import { classNames } from "./utils/classNames";
 
-export type CarouselProps = {
-  children: React.ReactNode | React.ReactNode[];
-  className?: string;
+export type CarouselProps = React.HTMLAttributes<HTMLDivElement> & {
   options?: Flickity.Options;
 };
 
 export default function Carousel(props: CarouselProps) {
-  const { children, className, options } = props;
+  const { options, className, ...rest } = props;
   const container = useRef<HTMLDivElement>(null);
   const flickity = useRef<Flickity>();
 
@@ -22,19 +20,19 @@ export default function Carousel(props: CarouselProps) {
   }, []);
 
   return (
-    <div className={classNames(styles.Carousel, className)} ref={container}>
-      {children}
-    </div>
+    <div
+      className={classNames(styles.Carousel, className)}
+      ref={container}
+      {...rest}
+    />
   );
 }
 
-export type CarouselCellProps = PropsWithChildren<{
-  className?: string;
-}>;
+export type CarouselCellProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function CarouselCell(props: CarouselCellProps) {
-  const { children, className } = props;
+  const { className, ...rest } = props;
   return (
-    <div className={classNames(styles.CarouselCell, className)}>{children}</div>
+    <div className={classNames(styles.CarouselCell, className)} {...rest} />
   );
 }
