@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./Gallery.module.css";
 import Carousel, { CarouselCell } from "./Carousel";
 
 const IMAGES = [
@@ -12,18 +12,21 @@ const IMAGES = [
   "https://source.unsplash.com/random/1200x1200/?nature,sea",
 ];
 
-function App() {
+function Gallery() {
   return (
-    <div className="App">
-      <Carousel>
-        {IMAGES.map((image, index) => (
-          <CarouselCell key={index}>
-            <img src={image} width="1200" height="1200" />
-          </CarouselCell>
-        ))}
-      </Carousel>
-    </div>
+    <Carousel className={styles.Gallery}>
+      {IMAGES.map((image, index) => (
+        <CarouselCell className={styles.GalleryItem} key={index}>
+          <img
+            className={styles.GalleryImage}
+            src={image}
+            width="1200"
+            height="1200"
+          />
+        </CarouselCell>
+      ))}
+    </Carousel>
   );
 }
 
-export default App;
+export default Gallery;

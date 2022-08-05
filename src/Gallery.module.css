@@ -1,0 +1,13 @@
+.GalleryItem {
+   display: block;
+}
+
+.GalleryItem {
+    padding-bottom: calc(100% * 3 / 4);
+}
+
+.GalleryImage {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+}
