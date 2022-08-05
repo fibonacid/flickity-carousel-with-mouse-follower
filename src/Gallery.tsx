@@ -13,6 +13,7 @@ const IMAGES = [
 ];
 
 function Gallery() {
+  console.log({ styles });
   return (
     <Carousel className={styles.Gallery}>
       {IMAGES.map((image, index) => (

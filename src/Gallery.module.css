@@ -1,9 +1,10 @@
-.GalleryItem {
+.Gallery {
    display: block;
 }
 
 .GalleryItem {
-    padding-bottom: calc(100% * 3 / 4);
+    width: 100%;
+    height: 500px !important;
 }
 
 .GalleryImage {

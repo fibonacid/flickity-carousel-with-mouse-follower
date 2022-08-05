@@ -32,7 +32,8 @@ export type CarouselCellProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export function CarouselCell({ children, className }: CarouselCellProps) {
+export function CarouselCell(props: CarouselCellProps) {
+  const { children, className } = props;
   return (
     <div className={classNames(styles.CarouselCell, className)}>{children}</div>
   );
